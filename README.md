@@ -1,5 +1,5 @@
 # foldseek-multimer-analysis
-### Pairwise Benchmark 
+### Similar Pairs Benchmark 
 ###### Getting Resources 
     blah blah
 ###### foldseek-MM
@@ -14,9 +14,9 @@
 ###### Getting Resources 
     blah blah
 ###### foldseek-MM
-    foldseek-multimer-analysis/CRISPR_benchmark/ run_foldseek-MM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_foldseek-MM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### foldseek-MM-TM
-    foldseek-multimer-analysis/CRISPR_benchmark/ run_foldseek-MM-TM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_foldseek-MM-TM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### US-align: runtime with 1,000 targets
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_runtime.sh [US-align PATH] [OUTPUT PATH]
 ###### US-align: all positive results
