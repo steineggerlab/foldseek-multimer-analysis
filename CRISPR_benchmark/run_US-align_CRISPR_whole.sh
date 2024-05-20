@@ -23,7 +23,7 @@ run_with_lock() {
 }
 USALIGN=$1
 RESULT="./tmp"
-QUERY="./CRISPR_db/pHS1543_NZ_CP025815_Csf3_5Csf2_unrelaxed_rank_001_alphafold2_multimer_v3_model_5_seed_000.pdb"
+QUERY="../datasets/CRISPR/pHS1543_NZ_CP025815_Csf3_5Csf2_unrelaxed_rank_001_alphafold2_multimer_v3_model_5_seed_000.pdb"
 
 mkdir -p "${RESULT}/"
 
@@ -34,7 +34,7 @@ task() {
 N=64
 open_sem $N
 pdb_list=$(mktemp)
-find ./CRISPR_db/PDBs -type f > $pdb_list
+find ../datasets/CRISPR/PDBs -type f > $pdb_list
 
 while IFS= read -r FILE; do
     run_with_lock task "$FILE";
