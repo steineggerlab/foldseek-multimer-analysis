@@ -8,6 +8,7 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark 
+    foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH]
 ###### Foldseek-MM
     foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_pairwise.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM-TM
