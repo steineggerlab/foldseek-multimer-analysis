@@ -27,5 +27,7 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
 ###### US-align: all positive results
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH]
 ### 3DComplexV7 Benchmark    
+###### Runtime
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] [threads for db]
 ###### Foldseek-MM
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [OUTPUT PATH]
