@@ -18,6 +18,8 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
 ###### US-align-fast
     foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_pairwise.sh [US-align PATH] [OUTPUT PATH]
 ### CRISPR Benchmark 
+###### Createdb 
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
 ###### Foldseek-MM
     foldseek-multimer-analysis/CRISPR_benchmark/run_foldseek-MM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM-TM
@@ -26,8 +28,10 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_runtime.sh [US-align PATH] [OUTPUT PATH]
 ###### US-align: all positive results
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH]
-### 3DComplexV7 Benchmark    
+### 3DComplexV7 Benchmark
+###### Createdb
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [threads]
 ###### Runtime
-    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] [threads for db]
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] 
 ###### Foldseek-MM
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [OUTPUT PATH]
