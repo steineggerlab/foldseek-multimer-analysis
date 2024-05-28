@@ -28,7 +28,7 @@ for i in 1 2 3 4 5; do
     /usr/bin/time $2 easy-complexsearch $DIR/../datasets/similar_pairs_benchmark/PDBs/"$q".pdb $DIR/../datasets/similar_pairs_benchmark/PDBs/"$t".pdb $DIR/tmp/tmp/result $DIR/tmp/tmp --threads 1 --exhaustive-search 1 --alignment-type 1 -v 0 2> $DIR/tmp/tmp/log.txt
     echo "${q} ${t} 0 0 0 0" >> $DIR/tmp/tmp/result_report
     awk 'FNR==NR {f=$1"\t"$2"\t"$5"\t"$6; nextfile;} /CPU/ {split($3, b, "e"); split(b[1], a, ":"); t=a[1]*60+a[2]; print f"\t"t}' $DIR/tmp/tmp/result_report $DIR/tmp/tmp/log.txt >> $DIR/tmp/ft_$i.tsv
-    rm -rf tmp/tmp
+    rm -rf $DIR/tmp/tmp
   done < $DIR/../datasets/similar_pairs_benchmark/pairs.tsv
 done
 cd $DIR
