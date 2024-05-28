@@ -5,18 +5,20 @@ This repository contains the scripts needed for reproducing the results of [Rapi
 The following script downloads files from [Zenodo](https://zenodo.org/records/11208705), organizes them and unites those of them that had to be split due to file size limitations:
 
     foldseek-multimer-analysis/datasets/download.sh
+    mkdir foldseek-multimer-analysis/datasets/CRISPR/PDBs
+Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/datasets/CRISPR/PDBs
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark 
     foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH]
 ###### Foldseek-MM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_pairwise.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM-TM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM-TM_pairwise.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM-TM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### US-align
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align_pairwise.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_US-align_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
 ###### US-align-fast
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_pairwise.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
 ### CRISPR Benchmark 
 ###### Createdb 
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
