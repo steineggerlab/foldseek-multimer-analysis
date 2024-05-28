@@ -12,13 +12,13 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ### Similar Pairs Benchmark 
     foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH]
 ###### Foldseek-MM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_pairwise.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM-TM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM-TM_pairwise.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM-TM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### US-align
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align_pairwise.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_US-align_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
 ###### US-align-fast
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_pairwise.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
 ### CRISPR Benchmark 
 ###### Createdb 
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
