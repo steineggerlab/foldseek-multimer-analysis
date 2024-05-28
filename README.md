@@ -5,6 +5,8 @@ This repository contains the scripts needed for reproducing the results of [Rapi
 The following script downloads files from [Zenodo](https://zenodo.org/records/11208705), organizes them and unites those of them that had to be split due to file size limitations:
 
     foldseek-multimer-analysis/datasets/download.sh
+    mkdir foldseek-multimer-analysis/datasets/CRISPR/PDBs
+Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/datasets/CRISPR/PDBs
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark 
