@@ -12,7 +12,8 @@ while read line || [ -n "$line" ] ; do
     /usr/bin/time $2 easy-complexsearch $query $DIR/tmp/3DComplexV7_clusearchdb ./tmp/3DComplexV7_aln $DIR/tmp/tmp --cluster-search 1 --threads 1 2>> $DIR/tmp/fs_time.log
     /usr/bin/time $2 easy-complexsearch $query $DIR/tmp/3DComplexV7_clusearchdb ./tmp/3DComplexV7_aln $DIR/tmp/tmp --cluster-search 1 --threads 1 --alignment-type 1 2>> $DIR/tmp/ft_time.log
 done < $DIR/../datasets/3DComplexV7_runtime_query.list 
-awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "US-align: "s}' $DIR/tmp/us_time.log
-awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "US-align (fast): "s}' $DIR/tmp/uf_time.log
-awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "Foldseek multimer: "s}' $DIR/tmp/fs_time.log
-awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "Foldseek multimer-TM: "s}' $DIR/tmp/ft_time.log
+awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "US-align: "s}' $DIR/tmp/us_time.log >> $3
+awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "US-align (fast): "s}' $DIR/tmp/uf_time.log >> $3
+awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "Foldseek multimer: "s}' $DIR/tmp/fs_time.log >> $3
+awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2]} END {print "Foldseek multimer-TM: "s}' $DIR/tmp/ft_time.log >> $3
+rm -rf $DIR/tmp
