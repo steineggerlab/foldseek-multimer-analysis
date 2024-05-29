@@ -3,7 +3,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd -P )"
 rm -rf $DIR/tmp
 mkdir $DIR/tmp
 while read line || [ -n "$line" ] ; do
-    query=$DIR/../datasets/3DComplexV7/PDBs/$line
+    query=$DIR/../datasets/similar_pairs_benchmark/PDBs/$line
     while read line || [ -n "$line" ] ; do
 	target=$DIR/../datasets/3DComplexV7/PDBs/$line
 	/usr/bin/time $1 $query $target  -mm 1 -ter 0 -mol prot 2>> $DIR/tmp/us_time.log
