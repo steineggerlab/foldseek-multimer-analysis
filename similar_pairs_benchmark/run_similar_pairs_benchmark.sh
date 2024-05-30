@@ -31,5 +31,5 @@ for i in 1 2 3 4 5; do
     rm -rf $DIR/tmp/tmp
   done < $DIR/../datasets/similar_pairs_benchmark/pairs.tsv
 done
-python $DIR/tot.py $DIR/../datasets/similar_pairs_benchmark/pairs.tsv  $3
+python $DIR/tot.py $DIR  $3
 rm -rf $DIR/tmp

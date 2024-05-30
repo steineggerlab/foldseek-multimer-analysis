@@ -3,6 +3,7 @@ import pandas as pd
 from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
+import sys 
 
 plt.style.use('seaborn-v0_8-white')
 
@@ -16,7 +17,7 @@ class BenchResult:
         self.fs_t_tm = fs_t_tm
         self.ft_q_tm = ft_q_tm
         self.ft_t_tm = ft_t_tm
-        self.chnum1 = chnum1 
+        self.chnum1 = chnum1
         self.chnum2 = chnum2
         self.timeByChNum = timeByChNum
         self.sdByChNum = sdByChNum
@@ -53,7 +54,7 @@ class FigGen:
         ax.scatter(self.bench.us_q_tm, self.bench.ft_q_tm, color=self.pallet[1], s=50, label='Complexsearch (tmalign)', alpha=alpha)
         ax.text(0.5,0.9, f'$r={stats.pearsonr(self.bench.us_q_tm, self.bench.ft_q_tm)[0]:.2f}$', fontdict=self.cor_style, va='center', ha='center', color=FigGen.pallet[1], label='Foldseek-TM')
         # ax.legend(loc='upper left', fontsize=self.legend_font)
-    
+
     def b1_ttm(self, ax, title):
         # Common
         ax.set_title(title, fontdict=self.title_style, loc='left')
@@ -90,12 +91,12 @@ class FigGen:
         ax.bar([i-0.1 for i in range(len(chainNums))], np.log10(ft_times.iloc[indexer])+2, color=self.pallet[1], label='Foldseek-TM', width=0.2)
         ax.bar([i+0.1 for i in range(len(chainNums))], np.log10(us_times.iloc[indexer])+2, color=self.pallet[3], label='USalign', width=0.2)
         ax.bar([i+0.3 for i in range(len(chainNums))], np.log10(uf_times.iloc[indexer])+2, color=self.pallet[2], label='USalign -fast', width=0.2)
-        
+
         ax.errorbar([i-0.3 for i in range(len(chainNums))], np.log10(fs_times.iloc[indexer])+2, yerr=self.createErrorBar(fs_times.iloc[indexer], fs_std.iloc[indexer]), color=pallet[0], fmt='none')
         ax.errorbar([i-0.1 for i in range(len(chainNums))], np.log10(ft_times.iloc[indexer])+2, yerr=self.createErrorBar(ft_times.iloc[indexer], ft_std.iloc[indexer]), color=pallet[1], fmt='none')
         ax.errorbar([i+0.1 for i in range(len(chainNums))], np.log10(us_times.iloc[indexer])+2, yerr=self.createErrorBar(us_times.iloc[indexer], us_std.iloc[indexer]), color=pallet[3], fmt='none')
         ax.errorbar([i+0.3 for i in range(len(chainNums))], np.log10(uf_times.iloc[indexer])+2, yerr=self.createErrorBar(uf_times.iloc[indexer], uf_std.iloc[indexer]), color=pallet[2], fmt='none')
-        
+
         ax.set_yticks(CLOG_VAL, ['{:,}'.format(x) for x in REAL_VAL], fontdict=self.number_style)
         ax.text(-1 + -0.3 * size, y_min+2-0.27 * (y_max-y_min) / 4, '# chains', fontdict=self.number_style)
         ax.set_xticks([i for i in range(len(chainNums))],[f'\n{i}' for i in chainNums], fontdict=self.number_style)
@@ -105,22 +106,14 @@ class FigGen:
         if legend:
             ax.legend(fontsize=self.legend_font, loc='upper center', ncol=2*size)
         ax.grid(True, axis='y')
-    
+
     def b1_rt(self, ax, title):
         self.runtime(
-            ax, title, self.pallet, [2,3,4,5,6,7,8,9,10,12,14,16,18,24], 
-            self.bench.timeByChNum.fs_times, self.bench.timeByChNum.ft_times, self.bench.timeByChNum.us_times, self.bench.timeByChNum.uf_times, 
-            self.bench.sdByChNum.fs_times, self.bench.sdByChNum.ft_times, self.bench.sdByChNum.us_times, self.bench.sdByChNum.uf_times, 
+            ax, title, self.pallet, [2,3,4,5,6,7,8,9,10,12,14,16,18,24],
+            self.bench.timeByChNum.fs_times, self.bench.timeByChNum.ft_times, self.bench.timeByChNum.us_times, self.bench.timeByChNum.uf_times,
+            self.bench.sdByChNum.fs_times, self.bench.sdByChNum.ft_times, self.bench.sdByChNum.us_times, self.bench.sdByChNum.uf_times,
             -1, 3, 2
         )
-        
-    # def b1_rt_sub(self, ax, title):
-    #     self.runtime(
-    #         ax, title, self.pallet, [2,4,8,16,24], 
-    #         self.bench.timeByChNum.fs_times, self.bench.timeByChNum.ft_times, self.bench.timeByChNum.us_times, self.bench.timeByChNum.uf_times, 
-    #         self.bench.sdByChNum.fs_times, self.bench.sdByChNum.ft_times, self.bench.sdByChNum.us_times, self.bench.sdByChNum.uf_times, 
-    #         -1, 3, 1
-    #     )
 
 if __name__ == "__main__":
     alpha = 0.5
@@ -129,22 +122,9 @@ if __name__ == "__main__":
     w = 6/26
     p = 2/26
     fmt='png'
-    df1 = pd.read_csv("../datasets/similar_pairs_benchmark/pairs.tsv", sep="\t", header=None)
-    df1.columns = [0, 1, "ch"]
-    for i in [1,2,3,4,5]:
-        for j in ["fs", "ft", "us", "uf"]:
-            foo = pd.read_csv(f"./tmp/{j}_{i}.tsv", sep="\t", header=None)
-            foo.columns = [0, 1, f"{j}_q_tm_{i}" if i>1 else f"{j}_q_tm", f"{j}_t_tm_{i}" if i>1 else f"{j}_t_tm", f"{j}_time{i}"]
-            foo[0] = foo[0].apply(lambda x: x.split(".")[0])
-            foo[1] = foo[1].apply(lambda x: x.split(".")[0])
-            df1 = pd.merge(df1, foo, on=(0, 1))
-    
-    df1["fs_times"] = df1.apply(lambda x: sum([x[i]for i in ["fs_time1", "fs_time2", "fs_time3", "fs_time4", "fs_time5"]])/5, axis=1)
-    df1["ft_times"] = df1.apply(lambda x: sum([x[i]for i in ["ft_time1", "ft_time2", "ft_time3", "ft_time4", "ft_time5"]])/5, axis=1)
-    df1["us_times"] = df1.apply(lambda x: sum([x[i]for i in ["us_time1", "us_time2", "us_time3", "us_time4", "us_time5"]])/5, axis=1)
-    df1["uf_times"] = df1.apply(lambda x: sum([x[i]for i in ["uf_time1", "uf_time2", "uf_time3", "uf_time4", "uf_time5"]])/5, axis=1)
-    df1 = df1[[0, 1, "ch", "fs_q_tm", "fs_t_tm", "fs_times", "ft_q_tm", "ft_t_tm", "ft_times",  "us_q_tm", "us_t_tm", "us_times",  "uf_q_tm", "uf_t_tm", "uf_times"]]
-    df1.to_csv("./tot_result.tsv", sep="\t", index=None)
+    input = sys.argv[1]
+    output = sys.argv[2]
+    df1 = pd.read_csv(input, sep="\t")
     df2 = df1[(df1.us_q_tm>0.5) & (df1.us_t_tm>0.5)]
     df3 = df1.groupby('ch')[['fs_times', 'ft_times', 'us_times', 'uf_times']]
     bench1 = BenchResult(df2.us_q_tm, df2.us_t_tm, df2.uf_q_tm, df2.uf_t_tm, df2.fs_q_tm, df2.fs_t_tm, df2.ft_q_tm, df2.ft_t_tm, df1.ch, df1.ch, df3.mean(), df3.std(), df3.max(), df3.min(), df3.count())
@@ -159,5 +139,4 @@ if __name__ == "__main__":
     figGen.b1_qtm(FigA, 'a')
     figGen.b1_ttm(FigB, 'b')
     figGen.b1_rt(FigC, 'c')
-    plt.savefig(f"similar_pairs.png", format=fmt, bbox_inches="tight")
-    plt.show()
+    plt.savefig(output, format=fmt, bbox_inches="tight")
