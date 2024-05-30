@@ -21,26 +21,28 @@ run_with_lock() {
         printf '%.3d' $? >&3
     )&
 }
+DIR="$( cd "$( dirname "$0" )" && pwd -P )"
 USALIGN=$1
-RESULT="./tmp"
-QUERY="../datasets/CRISPR/pHS1543_NZ_CP025815_Csf3_5Csf2_unrelaxed_rank_001_alphafold2_multimer_v3_model_5_seed_000.pdb"
+TMP=$DIR/tmp
+QUERY=$DIR/../datasets/CRISPR/pHS1543_NZ_CP025815_Csf3_5Csf2_unrelaxed_rank_001_alphafold2_multimer_v3_model_5_seed_000.pdb
 
-mkdir -p "${RESULT}/"
+mkdir -p "${TMP}/"
 
 task() {
-    ${USALIGN} "${QUERY}" "${FILE}" -mm 1 -ter 0 -mol prot -outfmt 2 >> ${RESULT}/result.txt
+    ${USALIGN} "${QUERY}" "${FILE}" -mm 1 -ter 0 -mol prot -outfmt 2 >> ${TMP}/result.txt
 }
 
-N=64
+N=$3
 open_sem $N
 pdb_list=$(mktemp)
-find ../datasets/CRISPR/PDBs -type f > $pdb_list
+find $DIR/../datasets/CRISPR/PDBs -type f > $pdb_list
 
 while IFS= read -r FILE; do
+    echo $FILE;
     run_with_lock task "$FILE";
 done < "$pdb_list"
 
 wait
-awk -v query=$QUERY '$1~/#PDBchain1/ {next;} $3>=0.5 {split(query, q, "/"); split($2, a, "/"); split(a[length(a)], b, ":"); print q[length(q)]"\t"b[1]"\t"$3}' tmp/result.txt > $2
-rm -rf "$RESULT"
+awk -v query=$QUERY '$1~/#PDBchain1/ {next;} $3>=0.5 {split(query, q, "/"); split($2, a, "/"); split(a[length(a)], b, ":"); print q[length(q)]"\t"b[1]"\t"$3}' $TMP/result.txt > $2
+rm -rf $TMP
 rm "$pdb_list"
