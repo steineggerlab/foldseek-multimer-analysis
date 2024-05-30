@@ -30,7 +30,7 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ###### US-align: runtime with 1,000 targets
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_runtime.sh [US-align PATH] [OUTPUT PATH]
 ###### US-align: all positive results
-    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH] [threads]
 ### 3DComplexV7 Benchmark
 ###### Createdb
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [threads]
