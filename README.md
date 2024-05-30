@@ -10,7 +10,8 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark 
-    foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH] [TSV OUTPUT PATH]
+    foldseek-multimer-analysis/pairwise_benchmark/fig.py [TSV OUTPUT PATH] [FIGURE(PNG) OUTPUT PATH]
 ###### Foldseek-MM
     foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM-TM
