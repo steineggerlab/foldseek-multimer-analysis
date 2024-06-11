@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -5,14 +6,9 @@ import matplotlib.pyplot as plt
 from matplotlib_venn import venn2, venn2_circles
 import matplotlib.lines as mlines
 plt.style.use('seaborn-v0_8-white')
-fmt = 'svg'
 plt.rcParams['svg.fonttype'] = 'none'
 final_pallet = ["#d7191c", "#fdae61", "#abd9e9", "#2c7bb6", "#d7191c", "#1a9641", "#ffffbf", "#7b3294", "#c2a5cf"]
 title_style = {'family': 'Arial', 'size': 30, 'weight':'bold'}
-# text_style = {'family': 'Arial', 'size': 20, 'weight':'bold'}
-# cor_style = {'family': 'serif', 'size': 30}
-# reg_style = {'family': 'serif', 'size': 25}
-# number_style = {'family': 'serif','size': 15}
 legend_font = "15"
 
 alpha = 0.5
@@ -38,8 +34,8 @@ if __name__ == "__main__":
     qs_pairs = sys.argv[1]
     fs_pairs = sys.argv[2]
     out_file = sys.argv[3]
-    qs = set(open(qs_pairs).readlines()[1:])
-    fs = set(open(fs_pairs).readlines()[1:])
+    qs = set([tuple(sorted(p.strip().split(","))) for p in open(qs_pairs).readlines()[1:]])
+    fs = set([tuple(sorted(p.strip().split(","))) for p in open(fs_pairs).readlines()[1:]])
     
     qs_only = len(qs - fs)
     fs_only = len(fs - qs) 
@@ -50,6 +46,5 @@ if __name__ == "__main__":
     gsc = fig.add_gridspec(nrows=1, ncols=1, left=0, right=1, top=1, bottom=0)
     Fig = fig.add_subplot(gsc[0])
     
-    BU_homo_res(Fig, '', final_pallet, 20)
-    plt.savefig(out_file, format=fmt, bbox_inches="tight")
-    plt.show()
+    BU_homo_res(Fig, '', final_pallet, 20, qs_only, fs_only, commons, qs_tots)
+    plt.savefig(out_file, format="png", bbox_inches="tight")
