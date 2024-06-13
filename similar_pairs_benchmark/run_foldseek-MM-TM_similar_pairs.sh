@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "$0" )" && pwd -P )"
-mkdir $DIR/tmp
+rm -rf $DIR/tmp
 while read line || [ -n "$line" ] ; do
   array=($(echo $line | tr " " "\n"))
   q=${array[0]}
