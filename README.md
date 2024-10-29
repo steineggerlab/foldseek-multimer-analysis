@@ -9,17 +9,11 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
 Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/datasets/CRISPR/PDBs
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
-### Similar Pairs Benchmark 
-    foldseek-multimer-analysis/pairwise_benchmark/run_similar_pairs_benchmark.sh [US-align PATH] [FOLDSEEK PATH] [TSV OUTPUT PATH]
-    foldseek-multimer-analysis/pairwise_benchmark/fig.py [TSV OUTPUT PATH] [FIGURE(PNG) OUTPUT PATH]
+### Similar Pairs Benchmark
 ###### Foldseek-MM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
-###### Foldseek-MM-TM
-    foldseek-multimer-analysis/pairwise_benchmark/run_foldseek-MM-TM_similar_pairs.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    /home/woosub/foldseek-multimer-analysis/similar_pairs_benchmark/run_FS-MM_similar_pairs_benchmark.sh [Foldseek PATH] [TEMP DIR]
 ###### US-align
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
-###### US-align-fast
-    foldseek-multimer-analysis/pairwise_benchmark/run_US-align-fast_similar_pairs.sh [US-align PATH] [OUTPUT PATH]
+    /home/woosub/foldseek-multimer-analysis/similar_pairs_benchmark/run_US-align_similar_pairs_benchmark.sh [US-align PATH] [TEMP DIR]
 ### CRISPR Benchmark 
 ###### Createdb 
     foldseek-multimer-analysis/CRISPR_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
