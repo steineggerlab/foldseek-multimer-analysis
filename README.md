@@ -28,8 +28,8 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ### 3DComplexV7 Benchmark
 ###### Createdb
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [THREADS] [DIR for DATABASE FILES]
-###### Runtime of US-align
-    foldseek-multimer-analysis/3DComplexV7_benchmark/run_US-align_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] [OUTPUT PATH]
+###### Runtimes
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM Nenchmark
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_FS-MM_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [CSV OUTPUT PATH] [THREADS] [TEMP DIR]
 ###### Figures [With your Data]
