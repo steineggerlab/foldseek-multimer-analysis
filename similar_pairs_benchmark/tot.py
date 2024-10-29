@@ -1,14 +1,17 @@
 import numpy as np
 import pandas as pd
 import sys 
+import os
+
 if __name__ == "__main__":
+    currDir = os.path.dirname(os.path.abspath(sys.argv[0]))
     inpdir = sys.argv[1]
     output = sys.argv[2]
-    df1 = pd.read_csv(f"{inpdir}/../datasets/similar_pairs_benchmark/pairs.tsv", sep="\t", header=None)
+    df1 = pd.read_csv(f"{currDir}/../datasets/similar_pairs_benchmark/pairs.tsv", sep="\t", header=None)
     df1.columns = [0, 1, "ch"]
     for i in [1,2,3,4,5]:
         for j in ["fs", "ft", "us", "uf"]:
-            foo = pd.read_csv(f"{inpdir}/tmp/{j}_{i}.tsv", sep="\t", header=None)
+            foo = pd.read_csv(f"{inpdir}/{j}_{i}.tsv", sep="\t", header=None)
             foo.columns = [0, 1, f"{j}_q_tm_{i}" if i>1 else f"{j}_q_tm", f"{j}_t_tm_{i}" if i>1 else f"{j}_t_tm", f"{j}_time{i}"]
             foo[0] = foo[0].apply(lambda x: x.split(".")[0])
             foo[1] = foo[1].apply(lambda x: x.split(".")[0])
