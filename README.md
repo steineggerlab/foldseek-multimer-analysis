@@ -27,11 +27,11 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
     foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH] [threads]
 ### 3DComplexV7 Benchmark
 ###### Createdb
-    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [threads]
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [THREADS] [DIR for DATABASE FILES]
 ###### Runtime
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_runtime.sh [US-align PATH] [FOLDSEEK PATH] [OUTPUT PATH]
 ###### Foldseek-MM
-    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [CSV OUTPUT PATH] [threads]
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [CSV OUTPUT PATH] [THREADS] [TEMP DIR]
 ###### Figures [With your Data]
     foldseek-multimer-analysis/3DComplexV7_benchmark/fig.py foldseek-multimer-analysis/datasets/3DComplexV7/QSalign_pairs.csv [CSV PATH] [FIGURE(PNG) OUTPUT PATH]
 ###### Figures [With Ready-made Data]  
