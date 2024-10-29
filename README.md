@@ -31,7 +31,8 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ###### Foldseek-MM Benchmark
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_FS-MM_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [CSV OUTPUT PATH] [THREADS] [TEMP DIR]
 ###### Database Search
-
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_foldseek-MM_databasesearch.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [TSV OUTPUT PATH] [TEMP DIR]
+    
 ###### Figures [With your Data]
     foldseek-multimer-analysis/3DComplexV7_benchmark/fig.py foldseek-multimer-analysis/datasets/3DComplexV7/QSalign_pairs.csv [CSV PATH] [FIGURE(PNG) OUTPUT PATH]
 ###### Figures [With Ready-made Data]  
