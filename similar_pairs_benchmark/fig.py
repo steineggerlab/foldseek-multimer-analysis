@@ -27,8 +27,12 @@ class BenchResult:
 
 class FigGen:
     pallet = ["#d7191c", "#fdae61", "#abd9e9", "#2c7bb6", "#d7191c", "#1a9641", "#ffffbf", "#7b3294",  "#c2a5cf"]
-    title_style = {'family': 'Arial', 'size': 30, 'weight':'bold'}
-    text_style = {'family': 'Arial', 'size': 20, 'weight':'bold'}
+    title_style = {
+            #'family': 'Arial', 
+            'size': 30, 'weight':'bold'}
+    text_style = {
+            #'family': 'Arial', 
+            'size': 20, 'weight':'bold'}
     cor_style = {'family': 'serif', 'size': 30}
     reg_style = {'family': 'serif', 'size': 25}
     number_style = {'family': 'serif','size': 15}
@@ -122,9 +126,9 @@ if __name__ == "__main__":
     w = 6/26
     p = 2/26
     fmt='png'
-    input = sys.argv[1]
+    inTsv = sys.argv[1]
     output = sys.argv[2]
-    df1 = pd.read_csv(input, sep="\t")
+    df1 = pd.read_csv(inTsv, sep="\t")
     df2 = df1[(df1.us_q_tm>0.5) & (df1.us_t_tm>0.5)]
     df3 = df1.groupby('ch')[['fs_times', 'ft_times', 'us_times', 'uf_times']]
     bench1 = BenchResult(df2.us_q_tm, df2.us_t_tm, df2.uf_q_tm, df2.uf_t_tm, df2.fs_q_tm, df2.fs_t_tm, df2.ft_q_tm, df2.ft_t_tm, df1.ch, df1.ch, df3.mean(), df3.std(), df3.max(), df3.min(), df3.count())
