@@ -7,10 +7,10 @@ DB=$3
 RES=$4
 DIR=$5
 mkdir $DIR
-for q in $(ls $DATA/similar_pairs_benchmark/PDBs | head); do
+for q in $(ls $DATA/similar_pairs_benchmark/PDBs); do
     Q=$(basename $q .pdb)
     query=$DATA/similar_pairs_benchmark/PDBs/$q
-    for t in $(head $DATA/3DComplexV7/3DComplexV7_runtime_target.list); do
+    for t in $(cat $DATA/3DComplexV7/3DComplexV7_runtime_target.list); do
         T=$(basename $t .pdb)
         target=$DATA/3DComplexV7/PDBs/$t
         /usr/bin/time $USALIGN $query $target  -mm 1 -ter 0 -mol prot -outfmt 2 > $DIR/us_"$Q"_"$T".tsv 2>> $DIR/us_"$Q".time
