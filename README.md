@@ -28,11 +28,9 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ### 3DComplexV7 Benchmark
 ###### Createdb
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [THREADS] [DIR for DATABASE FILES]
-###### Foldseek-MM Benchmark
-    foldseek-multimer-analysis/3DComplexV7_benchmark/run_FS-MM_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [CSV OUTPUT PATH] [THREADS] [TEMP DIR]
 ###### Database Search
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_database_search.sh [US-align PATH] [FOLDSEEK PATH] [DIR for DATABASE FILES] [TSV OUTPUT PATH] [TEMP DIR]
-###### Figures [With your Data]
-    foldseek-multimer-analysis/3DComplexV7_benchmark/fig.py foldseek-multimer-analysis/datasets/3DComplexV7/QSalign_pairs.csv [CSV PATH] [FIGURE(PNG) OUTPUT PATH]
-###### Figures [With Ready-made Data]  
-    foldseek-multimer-analysis/3DComplexV7_benchmark/fig.py foldseek-multimer-analysis/datasets/3DComplexV7/QSalign_pairs.csv foldseek-multimer-analysis/datasets/3DComplexV7/FS-MM.csv [FIGURE(PNG) OUTPUT PATH]
+###### Foldseek-MM Benchmark
+    foldseek-multimer-analysis/3DComplexV7_benchmark/run_FS-MM_3DComplexV7_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [CSV OUTPUT] [THREADS] [TEMP DIR]
+    foldseek-multimer-analysis/3DComplexV7_benchmark/tot.py foldseek-multimer-analysis/datasets/3DComplexV7/QSalign_pairs.csv [CSV INPUT] [TSV OUTPUT PATH]
+
