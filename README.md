@@ -11,9 +11,9 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark
     mkdir [TEMP DIR]
-    /home/woosub/foldseek-multimer-analysis/similar_pairs_benchmark/run_FS-MM_similar_pairs_benchmark.sh [Foldseek PATH] [TEMP DIR]
-    /home/woosub/foldseek-multimer-analysis/similar_pairs_benchmark/run_US-align_similar_pairs_benchmark.sh [US-align PATH] [TEMP DIR]
-    python /home/woosub/foldseek-multimer-analysis/similar_pairs_benchmark/tot.py [TEMP DIR] [RESULT TSV]
+    foldseek-multimer-analysis/similar_pairs_benchmark/run_FS-MM_similar_pairs_benchmark.sh [Foldseek PATH] [TEMP DIR]
+    foldseek-multimer-analysis/similar_pairs_benchmark/run_US-align_similar_pairs_benchmark.sh [US-align PATH] [TEMP DIR]
+    foldseek-multimer-analysis/similar_pairs_benchmark/tot.py [TEMP DIR] [RESULT TSV]
 ### CRISPR Benchmark 
 ###### Createdb 
     foldseek-multimer-analysis/CRISPR_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
