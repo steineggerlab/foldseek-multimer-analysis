@@ -10,21 +10,18 @@ Download PDB files from wwpdb.org and put them in foldseek-multimer-analysis/dat
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark
-    mkdir [TEMP DIR]
     foldseek-multimer-analysis/similar_pairs_benchmark/run_FS-MM_similar_pairs_benchmark.sh [Foldseek PATH] [TEMP DIR]
     foldseek-multimer-analysis/similar_pairs_benchmark/run_US-align_similar_pairs_benchmark.sh [US-align PATH] [TEMP DIR]
     foldseek-multimer-analysis/similar_pairs_benchmark/tot.py [TEMP DIR] [RESULT TSV]
 ### CRISPR Benchmark 
 ###### Createdb 
-    foldseek-multimer-analysis/CRISPR_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [threads]
-###### Foldseek-MM
-    foldseek-multimer-analysis/CRISPR_benchmark/run_foldseek-MM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
-###### Foldseek-MM-TM
-    foldseek-multimer-analysis/CRISPR_benchmark/run_foldseek-MM-TM_CRISPR.sh [FOLDSEEK PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_CRISPR_createdb.sh [FOLDSEEK PATH] [THREADS] [DIR for DATABASE FILES]
+###### Foldseek
+    foldseek-multimer-analysis/CRISPR_benchmark/run_CRISPR_benchmark.sh [FOLDSEEK PATH] [DIR for DATABASE FILES] [TEMP DIR]
 ###### US-align: runtime with 1,000 targets
-    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_runtime.sh [US-align PATH] [OUTPUT PATH]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_runtime.sh [US-align PATH] [TEMP DIR] [OUTPUT FILE]
 ###### US-align: all positive results
-    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [OUTPUT PATH] [threads]
+    foldseek-multimer-analysis/CRISPR_benchmark/run_US-align_CRISPR_whole.sh [US-align PATH] [TEMP DIR] [OUTPUT PATH] [THREADS]
 ### 3DComplexV7 Benchmark
 ###### Createdb
     foldseek-multimer-analysis/3DComplexV7_benchmark/run_3DComplexV7_createdb.sh [FOLDSEEK PATH] [THREADS] [DIR for DATABASE FILES]
