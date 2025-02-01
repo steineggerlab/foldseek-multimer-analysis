@@ -6,7 +6,7 @@ The following script downloads files from [Zenodo](https://zenodo.org/records/11
 
     foldseek-multimer-analysis/datasets/download.sh
     mkdir foldseek-multimer-analysis/datasets/CRISPR/PDBs
-Download CIF(.gz) files from wwpdb.org and put them in foldseek-multimer-analysis/datasets/CRISPR/PDBs
+Download CIF files from wwpdb.org and put them in foldseek-multimer-analysis/datasets/CRISPR/PDBs
 ###### Remove
     foldseek-multimer-analysis/datasets/remove.sh
 ### Similar Pairs Benchmark
