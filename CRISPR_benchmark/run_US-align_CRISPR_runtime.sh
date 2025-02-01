@@ -7,7 +7,7 @@ QUERY=$DATA/pHS1543_NZ_CP025815_Csf3_5Csf2_unrelaxed_rank_001_alphafold2_multime
 mkdir $DIR
 
 while read line; do
-    /usr/bin/time $USALIGN $QUERY  $DATA/PDBs/"$line".pdb  -mm 1 -ter 0 -mol prot -outfmt 2 >> $DIR/"$line"_result.txt  2>> $DIR/runtimes.txt
+    /usr/bin/time $USALIGN $QUERY  $DATA/PDBs/"$line".cif  -mm 1 -ter 0 -mol prot -outfmt 2 >> $DIR/"$line"_result.txt  2>> $DIR/runtimes.txt
 done < $DATA/runtime_targets.list
 
 awk '/CPU/ {split($3, a, "e"); split(a[1], b, ":"); s+=b[1]*60+b[2] } END {print s}' $DIR/runtimes.txt  > $OUT
